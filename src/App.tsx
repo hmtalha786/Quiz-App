@@ -9,11 +9,6 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormLabel from '@material-ui/core/FormLabel';
-import Typography from '@material-ui/core/Typography';
-
-
-
 
 export type AnswerObject = {
   question: string;
@@ -112,6 +107,7 @@ function App() {
                 </NativeSelect>
               </FormControl>
             </div>
+            <br />
             <div>
               <FormControl component="fieldset">
                 <RadioGroup row aria-label="type" name="type" value={type} onChange={TypeHandler}>
@@ -120,7 +116,7 @@ function App() {
                 </RadioGroup>
               </FormControl>
             </div>
-            <div><button className="start" onClick={startTrivia}>Start</button></div>
+            <div className="btn"><button className="start" onClick={startTrivia}>Start</button></div>
           </div>
         ) : null}
         {!gameOver ? <p className="score">Score: {score}</p> : null}
