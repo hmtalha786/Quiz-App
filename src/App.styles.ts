@@ -25,7 +25,10 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   > p {
-    color: #fff;
+    color: #000;
+  }
+  .btn {
+    text-align: center;
   }
   .score {
     color: #000;
@@ -42,7 +45,7 @@ export const Wrapper = styled.div`
     -webkit-text-fill-color: transparent;
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
-    filter: drop-shadow(2px 2px #411f1f);
+    filter: drop-shadow(2px 2px #ffb366);
     font-size: 5rem;
     text-align: center;
     margin: 10% 20px 5% 20px;
@@ -54,8 +57,8 @@ export const Wrapper = styled.div`
   }
   .start, .next {
     cursor: pointer;
-    background: black;
-    color: #fff;
+    background: #ffb366;
+    color: #000;
     border: 2px solid #000;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
     height: 40px;
