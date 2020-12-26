@@ -57,7 +57,7 @@ export const Wrapper = styled.div`
     filter: drop-shadow(2px 2px #ffb366);
     font-size: 5rem;
     text-align: center;
-    margin: 4% auto 4% auto;
+    margin: 10% auto 10% auto;
   }
   @media (max-width: 576px) {
     h1 {
