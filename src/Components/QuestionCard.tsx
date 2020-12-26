@@ -13,7 +13,7 @@ type Props = {
 const QuestionCard: React.FC<Props> = ({question,answers,callback,userAnswer,questionNr,totalQuestions}) => {
   return (
     <Wrapper>
-      <p className="number"> Question: {questionNr} / {totalQuestions} </p>
+      <p className="number"> Question : {questionNr} / {totalQuestions} </p>
       <p dangerouslySetInnerHTML={{ __html: question }}></p>
       <div> {answers.map((answer) => (
           <ButtonWrapper key={answer}correct={userAnswer?.correctAnswer === answer}userClicked={userAnswer?.answer === answer}>

@@ -36,9 +36,9 @@ function App() {
   const [userAnswer, setUserAnswer] = useState<AnswerObject[]>([]);
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(true);
-  const [diff, setDiff] = useState("");
+  const [diff, setDiff] = useState("easy");
   const [total_Questions, setTotal_Questions] = useState(10);
-  const [type, setType] = React.useState("multiple");
+  const [type, setType] = React.useState("boolean");
 
   const startTrivia = async () => {
     setLoading(true);
@@ -84,10 +84,10 @@ function App() {
     <>
       <GlobalStyle />
       <Wrapper>
-        <h1>React Quiz</h1>
+        <h1>Quiz App</h1>
         {gameOver || userAnswer.length === total_Questions ? (
           <div>
-            <div>
+            <div className="center">
               <FormControl className={classes.formControl}>
                 <InputLabel htmlFor="age-native-simple">Questions</InputLabel>
                 <NativeSelect value={total_Questions} defaultValue="" onChange={QusestionHandler}>
@@ -108,7 +108,7 @@ function App() {
               </FormControl>
             </div>
             <br />
-            <div>
+            <div className="center">
               <FormControl component="fieldset">
                 <RadioGroup row aria-label="type" name="type" value={type} onChange={TypeHandler}>
                   <FormControlLabel value="multiple" control={<Radio />} label="Multiple Choice" />
@@ -116,11 +116,11 @@ function App() {
                 </RadioGroup>
               </FormControl>
             </div>
-            <div className="btn"><button className="start" onClick={startTrivia}>Start</button></div>
+            <div className="center"><button className="start" onClick={startTrivia}><b>Start</b></button></div>
           </div>
         ) : null}
-        {!gameOver ? <p className="score">Score: {score}</p> : null}
-        {loading && <p>Loading Questions...</p>}
+        {!gameOver ? <p className="score"><b>Score : {score}</b></p> : null}
+        {loading && <p><b>Loading Quiz...</b></p>}
         {!loading && !gameOver && (
           <QuestionCard
             questionNr={number + 1}
@@ -131,7 +131,7 @@ function App() {
             callback={checkAnswer}
           />)}
         {!gameOver && !loading && userAnswer.length === number + 1 && number !== total_Questions - 1 ?
-          <button className="next" onClick={nextQuestion}>Next Question</button> : null}
+          <button className="next" onClick={nextQuestion}><b>Next Question</b></button> : null}
       </Wrapper>
     </>
   );

@@ -1,12 +1,12 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import BGImage from './Images/background.jpg'
+import img from './Images/background.jpg'
 
 export const GlobalStyle = createGlobalStyle`
   html {
     height: 100%;
   }
   body {
-    background-image: url(${BGImage});
+    background-image: url(${img});
     background-size: cover;
     background-repeat: no-repeat;
     margin: 0;
@@ -27,13 +27,22 @@ export const Wrapper = styled.div`
   > p {
     color: #000;
   }
-  .btn {
+  .center {
     text-align: center;
   }
   .score {
-    color: #000;
+    font-family: Fascinate Inline;
+    background-color: black;
+    background-size: 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    filter: drop-shadow(2px 2px #ffb366);
     font-size: 2rem;
-    margin: 0;
+    text-align: center;
+    margin: 0% auto 4% auto;
   }
   h1 {
     font-family: Fascinate Inline;
@@ -48,7 +57,7 @@ export const Wrapper = styled.div`
     filter: drop-shadow(2px 2px #ffb366);
     font-size: 5rem;
     text-align: center;
-    margin: 10% 20px 5% 20px;
+    margin: 4% auto 4% auto;
   }
   @media (max-width: 576px) {
     h1 {
@@ -60,6 +69,7 @@ export const Wrapper = styled.div`
     background: #ffb366;
     color: #000;
     border: 2px solid #000;
+    border-radius: 10px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
     height: 40px;
     margin: 20px 0;
