@@ -1,5 +1,5 @@
-import styled, { createGlobalStyle } from 'styled-components';
-import img from './Images/background.jpg'
+import styled, { createGlobalStyle } from "styled-components";
+import img from "./Images/background.jpg";
 
 export const GlobalStyle = createGlobalStyle`
   html {
@@ -27,6 +27,11 @@ export const Wrapper = styled.div`
   > p {
     color: #000;
   }
+  .formControl {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+  }
   .center {
     text-align: center;
   }
@@ -39,7 +44,7 @@ export const Wrapper = styled.div`
     -webkit-text-fill-color: transparent;
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
-    filter: drop-shadow(2px 2px #ffb366);
+    filter: drop-shadow(2px 2px #f0ffff);
     font-size: 2rem;
     text-align: center;
     margin: 0% auto 4% auto;
@@ -54,7 +59,7 @@ export const Wrapper = styled.div`
     -webkit-text-fill-color: transparent;
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
-    filter: drop-shadow(2px 2px #ffb366);
+    filter: drop-shadow(2px 2px #f0ffff);
     font-size: 5rem;
     text-align: center;
     margin: 10% auto 10% auto;
@@ -62,11 +67,12 @@ export const Wrapper = styled.div`
   @media (max-width: 576px) {
     h1 {
       font-size: 3rem;
-    } 
+    }
   }
-  .start, .next {
+  .start,
+  .next {
     cursor: pointer;
-    background: #ffb366;
+    background: #f0ffff;
     color: #000;
     border: 2px solid #000;
     border-radius: 10px;
