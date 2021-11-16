@@ -1,15 +1,19 @@
-importScripts('https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js');
-importScripts('https://www.gstatic.com/firebasejs/7.17.1/firebase-messaging.js');
+importScripts("https://www.gstatic.com/firebasejs/3.5.0/firebase-app.js");
+importScripts("https://www.gstatic.com/firebasejs/3.5.0/firebase-messaging.js");
 
-const firebaseConfig = {
-    apiKey: "AIzaSyDqb2OJvwup9AlTTMVWlP7KiSEXMiy2mGk",
-    authDomain: "notificationapp-54b09.firebaseapp.com",
-    databaseURL: "https://notificationapp-54b09.firebaseio.com",
-    projectId: "notificationapp-54b09",
-    storageBucket: "notificationapp-54b09.appspot.com",
-    messagingSenderId: "97986726135",
-    appId: "1:97986726135:web:a2fedc0b07d1975f07abf2"
-  };
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("../firebase-messaging-sw.js")
+    .then(function (registration) {
+      console.log("Registration successful, scope is:", registration.scope);
+    })
+    .catch(function (err) {
+      console.log("Service worker registration failed, error:", err);
+    });
+}
 
-  firebase.initializeApp(firebaseConfig);
-  firebase.messaging();
+firebase.initializeApp({
+  messagingSenderId: "480089552527",
+});
+
+const initMessaging = firebase.messaging();

@@ -1,21 +1,25 @@
-console.log("Registered");
-// Cache Version
-let version = "v2";
+console.log("service worker from public registered");
 
 //Cache Files
 let cacheFiles = [
-  "/static/js/2.afcd96c6.chunk.js",
-  "/static/js/main.56514b9a.chunk.js",
-  "/static/css/main.c664c759.chunk.css",
-  "/",
+  "/static/js/main.chunk.js",
+  "/static/js/bundle.js",
+  "/static/js/0.chunk.js",
+  "/static/media/background.8e68c44e.jpg",
+  "https://fonts.googleapis.com/icon?family=Material+Icons",
+  "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap",
+  "https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu4mxK.woff2",
+  "https://opentdb.com/api.php?amount=10&difficulty=easy&type=boolean",
+  "/favicon.ico",
   "/index.html",
+  "/",
 ];
 
 // Install Service Woker
-self.addEventListener("install", (e) => {
-  self.skipWaiting();
+this.addEventListener("install", (e) => {
+  this.skipWaiting();
   e.waitUntil(
-    caches.open(version).then((cache) => {
+    caches.open("App").then((cache) => {
       console.log("cacheFiles", cacheFiles);
       return cache.addAll(cacheFiles);
     })
@@ -23,7 +27,7 @@ self.addEventListener("install", (e) => {
 });
 
 // Activate Service Worker
-self.addEventListener("activate", function (e) {
+this.addEventListener("activate", function (e) {
   console.log("[ServiceWorker] Activate");
 });
 
@@ -33,7 +37,7 @@ const options = {
   ignoreVary: true,
 };
 // Fetch Service Worker
-self.addEventListener("fetch", (event) => {
+this.addEventListener("fetch", (event) => {
   if (!navigator.onLine) {
     event.respondWith(
       caches

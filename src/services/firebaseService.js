@@ -1,33 +1,37 @@
-import firebase from 'firebase';
+import firebase from "firebase";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDqb2OJvwup9AlTTMVWlP7KiSEXMiy2mGk",
-    authDomain: "notificationapp-54b09.firebaseapp.com",
-    databaseURL: "https://notificationapp-54b09.firebaseio.com",
-    projectId: "notificationapp-54b09",
-    storageBucket: "notificationapp-54b09.appspot.com",
-    messagingSenderId: "97986726135",
-    appId: "1:97986726135:web:a2fedc0b07d1975f07abf2"
-  };
+  apiKey: "AIzaSyDDH1jU6fa2vaaGwLLZJud6r_WWKV7AMTY",
+  authDomain: "quiz-app-da277.firebaseapp.com",
+  projectId: "quiz-app-da277",
+  storageBucket: "quiz-da277.appspot.com",
+  messagingSenderId: "480089552527",
+  appId: "1:480089552527:web:9f2083aa4b15bf616f62fa",
+};
 
-  firebase.initializeApp(firebaseConfig);
-  const messaging = firebase.messaging();
+firebase.initializeApp(firebaseConfig);
+
+const messaging = firebase.messaging();
 
 export function initNotification() {
-    Notification.requestPermission().then((permission) => { 
-        console.log(permission) 
-        if(permission === "granted"){
-            messaging.getToken().then((currentToken) => {
-                if (currentToken) {
-                    console.log("TOKEN")
-                    console.log(currentToken);
-                } else {
-                  console.log('No Instance ID token available. Request permission to generate one.');
-
-                }
-              }).catch((err) => {
-                console.log('An error occurred while retrieving token. ', err);
-              });
-        }
-    })
+  Notification.requestPermission().then((permission) => {
+    console.log(permission);
+    if (permission === "granted") {
+      messaging
+        .getToken()
+        .then((currentToken) => {
+          if (currentToken) {
+            console.log("TOKEN");
+            console.log(currentToken);
+          } else {
+            console.log(
+              "No Instance ID token available. Request permission to generate one."
+            );
+          }
+        })
+        .catch((err) => {
+          console.log("An error occurred while retrieving token. ", err);
+        });
+    }
+  });
 }

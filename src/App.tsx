@@ -19,7 +19,6 @@ export type AnswerObject = {
 };
 
 function App() {
-
   const [number, setNumber] = useState(0);
   const [questions, setQuestions] = useState<QuestionState[]>([]);
   const [userAnswer, setUserAnswer] = useState<AnswerObject[]>([]);
@@ -168,7 +167,7 @@ function App() {
             <b>Loading Quiz...</b>
           </p>
         )}
-        
+
         {!loading && !gameOver && (
           <QuestionCard
             questionNr={number + 1}
